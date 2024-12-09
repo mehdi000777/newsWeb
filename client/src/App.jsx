@@ -10,7 +10,7 @@ import PersistLogin from "./components/auth/PersistLogin";
 import Archive from "./pages/Archive";
 import AdminNewsPage from "./pages/AdminNewsPage";
 import AdminLayout from "./components/Admin/Layout/AdminLayout";
-import AdminCategoryPage from "./pages/adminCategoryPage";
+import AdminCategoryPage from "./pages/AdminCategoryPage"
 import AdminUsersPage from "./pages/AdminUsersPage";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import CreateNews from "./components/Admin/CreateNews";
