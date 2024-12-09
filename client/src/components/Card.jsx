@@ -8,7 +8,7 @@ import { ClipLoader } from "react-spinners";
 
 const Card = ({ data, isLoading, page, setPage }) => {
   return (
-    <div className="w-full h-full overflow-hidden">
+    <div className="w-full h-full md:p-0 p-4 overflow-hidden">
       {isLoading ? (
         <ClipLoader />
       ) : (
@@ -16,7 +16,7 @@ const Card = ({ data, isLoading, page, setPage }) => {
           {data?.news?.map((item, index) => (
             <li
               key={index}
-              className={`w-full flex my-4 shadow-[0px_1px_5px_0px_#9e9e9e] bg-[#ffffff] border border-[#c7c7c7c7] p-2`}
+              className={`w-full md:h-full h-40 overflow-hidden flex my-4 shadow-[0px_1px_5px_0px_#9e9e9e] bg-[#ffffff] border border-[#c7c7c7c7] p-2`}
             >
               <div className={`mb-1 relative group w-40 min-h-24`}>
                 <img
@@ -36,14 +36,14 @@ const Card = ({ data, isLoading, page, setPage }) => {
                   </Link>
                 </div>
               </div>
-              <div className="flex-1 mr-5">
+              <div className="flex-1 mr-5 overflow-auto">
                 <Link
                   to={`/${item._id}`}
                   className="text-lg font-bold hover:text-orange text-primary transition-all"
                 >
                   <h2>{item.title}</h2>
                 </Link>
-                <p className={`text-md mt-1`}>
+                <p className={`text-md mt-1 text-justify`}>
                   {ellipsis(item.description, 250)}
                 </p>
               </div>
@@ -51,11 +51,7 @@ const Card = ({ data, isLoading, page, setPage }) => {
           ))}
         </ul>
       )}
-      <Pagination
-        page={page}
-        setPage={setPage}
-        pageCount={data?.pageCount}
-      />
+      <Pagination page={page} setPage={setPage} pageCount={data?.pageCount} />
     </div>
   );
 };

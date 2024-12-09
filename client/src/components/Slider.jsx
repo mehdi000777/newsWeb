@@ -30,7 +30,7 @@ const Slider = () => {
   return (
     <div className="bg-[#ffffff] w-full h-full flex justify-between overflow-hidden">
       {/* <!-- start btns --> */}
-      <div className="h-full flex flex-col justify-between flex-1">
+      <div className="h-full flex flex-col justify-between sm:flex-[1] flex-[2]">
         {isLoading ? (
           <div>Loading...</div>
         ) : (
@@ -41,7 +41,7 @@ const Slider = () => {
               className="relative border-b border-[rgba(0,0,0,0.1)] cursor-pointer flex items-center justify-between hover:bg-[rgba(94,94,94,0.1)] transition-all"
             >
               <div
-                className={`h-full  absolute right-0 transition-all duration-300 ${
+                className={`h-full absolute right-0 transition-all duration-300 ${
                   active === index
                     ? "bg-primary w-[4px]"
                     : "bg-[rgba(0,0,0,0.1)] w-[2px]"
