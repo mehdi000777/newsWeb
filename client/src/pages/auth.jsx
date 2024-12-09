@@ -7,7 +7,14 @@ const Auth = () => {
   const [mode, setMode] = useState("login");
 
   return (
-    <div className="bg-[url('src/assets/bg-auth.jpg')] bg-cover bg-no-repeat h-screen relative">
+    <div
+      style={{
+        background: "url(src/assets/bg-auth.jpg)",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+      className="h-screen relative"
+    >
       <div className="absolute top-10 left-12">
         <Link
           to="/"

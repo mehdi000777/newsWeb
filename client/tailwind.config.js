@@ -6,13 +6,9 @@ export default {
       colors: {
         primary: "#27bec4",
         secondary: "#646464",
-        orange: "#ff642f"
+        orange: "#ff642f",
       },
-      backgroundImage: {
-        "line-bg": "url('src/assets/line-bg.png')"
-      }
     },
   },
   plugins: [],
-}
-
+};

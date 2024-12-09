@@ -9,7 +9,12 @@ const DivideLine = ({ text, Icon }) => {
           <h3 className="text-orange font-bold text-lg">{text}</h3>
         </div>
       )}
-      <div className={`h-full w-full bg-line-bg`} />
+      <div
+        style={{
+          background: "url(src/assets/line-bg.png)",
+        }}
+        className={`h-full w-full`}
+      />
     </div>
   );
 };
