@@ -9,7 +9,7 @@ const Auth = () => {
   return (
     <div
       style={{
-        background: "url(src/assets/bg-auth.jpg)",
+        background: "url(./bg-auth.jpg)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}

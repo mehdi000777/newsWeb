@@ -11,7 +11,7 @@ const DivideLine = ({ text, Icon }) => {
       )}
       <div
         style={{
-          background: "url(src/assets/line-bg.png)",
+          background: "url(./line-bg.png)",
         }}
         className={`h-full w-full`}
       />
