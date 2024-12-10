@@ -18,6 +18,8 @@ const DropDown = ({ open, data, pos }) => {
     animation();
   }, [open]);
 
+  console.log(data)
+
   return (
     <div
       ref={menu}
@@ -25,21 +27,25 @@ const DropDown = ({ open, data, pos }) => {
     >
       <ul>
         {data.map((item, index) => (
-          <Link key={index} to={item?.link}>
-            <li
-              className="cursor-pointer p-2 border-b border-[rgba(0,0,0,0.1)] hover:bg-[rgba(0,0,0,0.1)] transition-all duration-200 relative"
-              onClick={() => item.dropDown && setSubOpen(!subOpen)}
-            >
-              {item?.name}
-            </li>
-            {item.dropDown && (
-              <DropDown
-                open={subOpen}
-                data={item?.categories}
-                pos={"top-20 right-full"}
-              />
+          <>
+            {(item.show ?? true) &&(
+              <Link key={index} to={item?.link} onClick={item.onClick}>
+                <li
+                  className="cursor-pointer p-2 border-b border-[rgba(0,0,0,0.1)] hover:bg-[rgba(0,0,0,0.1)] transition-all duration-200 relative"
+                  onClick={() => item.dropDown && setSubOpen(!subOpen)}
+                >
+                  {item?.name}
+                </li>
+                {item.dropDown && (
+                  <DropDown
+                    open={subOpen}
+                    data={item?.data}
+                    pos={"top-20 right-full"}
+                  />
+                )}
+              </Link>
             )}
-          </Link>
+          </>
         ))}
       </ul>
     </div>

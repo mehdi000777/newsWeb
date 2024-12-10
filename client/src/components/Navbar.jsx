@@ -39,11 +39,13 @@ const Navbar = () => {
       name: "خــانه",
       en: "home",
       link: "/",
+      show: true,
     },
     {
       name: "اخبار",
       en: "news",
       link: "/archive",
+      show: true,
     },
     {
       name: "موضوعات",
@@ -52,11 +54,13 @@ const Navbar = () => {
         setSubjectOpen(!subjectOpen);
       },
       dropDown: true,
-      categories: categories ?? [],
+      data: categories ?? [],
+      show: true,
     },
     {
       name: "درباره ما",
       en: "about us",
+      show: true,
     },
     {
       name: user ? user.name : "ورود / ثبت نام",
@@ -72,6 +76,13 @@ const Navbar = () => {
           }
         }
       },
+      show: true,
+    },
+    {
+      name: "پنل ادمین",
+      en: "admin panel",
+      link: "/admin/news",
+      show: user?.isAdmin ?? false,
     },
   ];
 
@@ -92,60 +103,47 @@ const Navbar = () => {
       <nav className="md:flex flex-col gap-2 hidden md:pr-4 lg:pr-0">
         <ul className="flex flex-row gap-4">
           {navItems.map((item, index) => (
-            <li
-              key={item.en}
-              className="flex items-center group gap-4 relative"
-            >
-              <div className="flex justify-center items-center gap-4">
-                {item?.en.includes("login") && (
-                  <FaUser
-                    size={19}
-                    className="text-primary group-hover:text-orange transition-all duration-300"
-                  />
-                )}
-                <Link
-                  to={item.link}
-                  onClick={item.onClick}
-                  className="flex flex-col items-center font-bold"
+            <>
+              {item?.show && (
+                <li
+                  className="flex items-center group gap-4 relative"
                 >
-                  <div className="text-primary text-xl group-hover:text-orange transition-all duration-300 flex items-center gap-1">
-                    <span>{item.name}</span>
-                    {item.en === "subjects" && (
-                      <RiArrowDropDownLine size={19} />
+                  <div className="flex justify-center items-center gap-4">
+                    {item?.en.includes("login") && (
+                      <FaUser
+                        size={19}
+                        className="text-primary group-hover:text-orange transition-all duration-300"
+                      />
                     )}
+                    <Link
+                      to={item.link}
+                      onClick={item.onClick}
+                      className="flex flex-col items-center font-bold"
+                    >
+                      <div className="text-primary text-xl group-hover:text-orange transition-all duration-300 flex items-center gap-1">
+                        <span>{item.name}</span>
+                        {item.en === "subjects" && (
+                          <RiArrowDropDownLine size={19} />
+                        )}
+                      </div>
+                      <span className="text-secondary uppercase tracking-widest text-[13px]">
+                        {item.en}
+                        <div className="w-full h-[1px] bg-orange group-hover:scale-100 scale-0 transition-all duration-300 origin-left" />
+                      </span>
+                    </Link>
                   </div>
-                  <span className="text-secondary uppercase tracking-widest text-[13px]">
-                    {item.en}
-                    <div className="w-full h-[1px] bg-orange group-hover:scale-100 scale-0 transition-all duration-300 origin-left" />
-                  </span>
-                </Link>
-              </div>
-              {navItems.length != index + 1 && (
-                <div className="w-[1px] h-[15px] bg-secondary opacity-20" />
+                  <div className="w-[1px] h-[15px] bg-secondary opacity-20" />
+                  {item.en === "subjects" && !isLoading && (
+                    <DropDown
+                      open={subjectOpen}
+                      data={categories}
+                      pos={"top-12 right-0"}
+                    />
+                  )}
+                </li>
               )}
-              {item.en === "subjects" && !isLoading && (
-                <DropDown
-                  open={subjectOpen}
-                  data={categories}
-                  pos={"top-12 right-0"}
-                />
-              )}
-            </li>
+            </>
           ))}
-          {user?.isAdmin && (
-            <li className="flex items-center group gap-4">
-              <div className="w-[1px] h-[15px] bg-secondary opacity-20" />
-              <Link to="/admin/news" className="text-primary font-bold">
-                <div className="text-primary text-xl group-hover:text-orange transition-all duration-300 flex items-center flex-col">
-                  <span>پنل ادمین</span>
-                  <span className="text-secondary uppercase tracking-widest text-[13px]">
-                    Admin Panel
-                    <div className="w-full h-[1px] bg-orange group-hover:scale-100 scale-0 transition-all duration-300 origin-left" />
-                  </span>
-                </div>
-              </Link>
-            </li>
-          )}
         </ul>
         <div className="w-full h-[35px] rounded-md bg-[#f5f5f5] flex items-center justify-between">
           <input
