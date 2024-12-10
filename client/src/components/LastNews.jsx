@@ -42,7 +42,9 @@ const LastNews = () => {
                   to={`/${item._id}`}
                   className="flex justify-between items-center mt-1 group"
                 >
-                  <h2 className="font-bold">{item.title}</h2>
+                  <h2 className="font-bold">
+                    {item.title.length > 30 ? ellipsis(item.title, 30) : item.title}
+                  </h2>
                   <span className="bg-[#aaaaaa] py-[2px] px-2 rounded-md text-sm text-white border-b-2 border-[#7a7a7a] group-hover:border-orange group-hover:bg-orange transition-all duration-300">
                     بیشتر
                   </span>

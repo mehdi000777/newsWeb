@@ -10,8 +10,8 @@ const Header = () => {
       <div className="w-[64rem] h-full flex justify-between items-center">
         <Navbar />
         <div className="h-full flex items-center justify-between gap-3">
-          <a
-            href="#"
+          <Link
+            to="/aboutUs"
             className="w-full h-full sm:flex hidden flex-col items-center justify-center border-x border-[rgba(0,0,0,0.1)] group"
           >
             <GiRotaryPhone
@@ -21,7 +21,7 @@ const Header = () => {
             <h4 className="text-orange opacity-70 font-bold group-hover:opacity-100 transition-all duration-300">
               تماس با ما
             </h4>
-          </a>
+          </Link>
           <Link
             to="/"
             className="sm:w-[9rem] w-[7rem] h-full object-cover flex items-center justify-center opacity-70 hover:opacity-100 transition-all duration-300"

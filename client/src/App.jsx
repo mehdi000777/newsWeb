@@ -10,7 +10,7 @@ import PersistLogin from "./components/auth/PersistLogin";
 import Archive from "./pages/Archive";
 import AdminNewsPage from "./pages/AdminNewsPage";
 import AdminLayout from "./components/Admin/Layout/AdminLayout";
-import AdminCategoryPage from "./pages/AdminCategoryPage"
+import AdminCategoryPage from "./pages/AdminCategoryPage";
 import AdminUsersPage from "./pages/AdminUsersPage";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import CreateNews from "./components/Admin/CreateNews";
@@ -18,6 +18,7 @@ import CreateCategory from "./components/Admin/CreateCategory";
 import AdminEditNewsPage from "./pages/AdminEditNewsPage";
 import AdminEditCategoryPage from "./pages/AdminEditCategoryPage";
 import AdminEditUserPage from "./pages/AdminEditUserPage";
+import AboutUs from "./pages/AboutUs";
 
 const App = () => {
   return (
@@ -58,6 +59,7 @@ const App = () => {
               <Route path="createCategory" element={<CreateCategory />} />
             </Route>
           </Route>
+          <Route path="/aboutUs" element={<AboutUs />} />
         </Route>
         <Route path="auth" element={<Auth />} />
       </Routes>

@@ -60,6 +60,7 @@ const Navbar = () => {
     {
       name: "درباره ما",
       en: "about us",
+      link: "/aboutUs",
       show: true,
     },
     {
@@ -105,9 +106,7 @@ const Navbar = () => {
           {navItems.map((item, index) => (
             <>
               {item?.show && (
-                <li
-                  className="flex items-center group gap-4 relative"
-                >
+                <li className="flex items-center group gap-4 relative">
                   <div className="flex justify-center items-center gap-4">
                     {item?.en.includes("login") && (
                       <FaUser

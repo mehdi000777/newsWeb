@@ -57,7 +57,11 @@ const NewsSlider = ({ horizantal, data }) => {
                   horizantal ? "w-24 h-24" : "w-full h-[11.25rem] flex-[2]"
                 }`}
               >
-                <img className="w-full h-full object-cover absolute top-0" src={item.thumbnale} alt="" />
+                <img
+                  className="w-full h-full object-cover absolute top-0"
+                  src={item.thumbnale}
+                  alt=""
+                />
                 <div
                   className={`w-full ${
                     horizantal ? "h-24" : "h-[11.25rem]"
@@ -77,7 +81,12 @@ const NewsSlider = ({ horizantal, data }) => {
                   to={`/${item._id}`}
                   className="text-sm font-bold text-center hover:text-orange text-primary transition-all"
                 >
-                  <h2>{item.title}</h2>
+                  <h2>
+                    {" "}
+                    {item.title.length > 20
+                      ? ellipsis(item.title, 20)
+                      : item.title}
+                  </h2>
                 </Link>
                 <p
                   className={`${
